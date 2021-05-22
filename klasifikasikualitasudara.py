@@ -19,8 +19,8 @@ st.title('Klasifikasi Kualitas Udara di Provinsi Riau menggunakan Metode Support
 st.write(' ')
 st.write(' ')
 
-uploadIspu = st.sidebar.file_uploader("Upload Data Ispu", type=['xlsx'], key = 'ispu')
-uploadCuaca = st.sidebar.file_uploader("Upload Data Cuaca", type=['xlsx'], key = 'cuaca')
+uploadIspu = st.sidebar.file_uploader("Upload Data Ispu", type=['xlsx'], engine='openpyxl', key = 'ispu')
+uploadCuaca = st.sidebar.file_uploader("Upload Data Cuaca", type=['xlsx'], engine='openpyxl', key = 'cuaca')
 
 split_data = st.sidebar.slider('Split Data Training dan Testing', 0.10, 0.30)
 
