@@ -3,7 +3,6 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 import streamlit as st
-#from openpyxl import load_workbook
 
 from sklearn.model_selection import train_test_split  
 from sklearn.svm import SVC  
@@ -203,7 +202,7 @@ if uploadIspu and uploadCuaca is not None:
              ]
 	st.write(param_grid)
 
-	grid = GridSearchCV(SVC(),param_grid,refit=True,verbose=2, n_jobs=3, cv=5, iid =False)
+	grid = GridSearchCV(SVC(),param_grid,refit=True,verbose=2, n_jobs=3, cv=5)
 	grid.fit(X_train_scaled,y_train)
 
 	st.write('**Hasil estimator terbaik**')
