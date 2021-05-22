@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 import streamlit as st
-#from openpyxl import load_workbook
+import xlrd
 
 from sklearn.model_selection import train_test_split  
 from sklearn.svm import SVC  
