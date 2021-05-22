@@ -2,6 +2,7 @@ import seaborn as sns
 
 import pandas as pd
 import numpy as np
+import requests
 import streamlit as st
 from openpyxl import load_workbook
 
