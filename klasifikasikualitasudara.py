@@ -3,6 +3,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 import streamlit as st
+import xlrd
 
 from sklearn.model_selection import train_test_split  
 from sklearn.svm import SVC  
@@ -18,16 +19,16 @@ st.title('Klasifikasi Kualitas Udara di Provinsi Riau menggunakan Metode Support
 st.write(' ')
 st.write(' ')
 
-uploadIspu = st.sidebar.file_uploader("Upload Data Ispu", type=['xlsx'], engine='openpyxl', key = 'ispu')
-uploadCuaca = st.sidebar.file_uploader("Upload Data Cuaca", type=['xlsx'], engine='openpyxl', key = 'cuaca')
+uploadIspu = st.sidebar.file_uploader("Upload Data Ispu", type=['xlsx'], key = 'ispu')
+uploadCuaca = st.sidebar.file_uploader("Upload Data Cuaca", type=['xlsx'], key = 'cuaca')
 
 split_data = st.sidebar.slider('Split Data Training dan Testing', 0.10, 0.30)
 
 if uploadIspu and uploadCuaca is not None:
-	ispu = pd.read_excel(uploadIspu, keep_default_na=False, na_values=[""])
+	ispu = xlrd.open_workbook(uploadIspu, keep_default_na=False, na_values=[""])
 	DataSelected = False
 
-	cuaca = pd.read_excel(uploadCuaca, keep_default_na=False, na_values=[""])
+	cuaca = xlrd.open_workbook(uploadCuaca, keep_default_na=False, na_values=[""])
 	DataSelected = False
 	st.write('**1. Data Kualitas Udara**')
 	st.write(ispu)
